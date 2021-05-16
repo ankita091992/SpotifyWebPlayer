@@ -28,16 +28,16 @@ public class SearchPageTest extends TestBase {
 
 		super();
 	}
-
+	
 	@Test(priority = 1)
-	public void validatepPausethesong() {
+	public void validatePausethesong() {
 		logger.info("Checking if the User is able to pause the song from the media player ");
 		logger.info("Typing in the name of the playlist");
 		search.typeinSearchBox();
 		logger.info("Clicking on the playlist");
 		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
+		logger.info("Clicking on the Song button inside the playlist");
+		search.clickonSonginPlaylist();
 		logger.info("Clicking on the Close Icon the Cookie Policy popup");
 		search.clickonClose();
 		logger.info("Pausing the song from the media player");
@@ -57,8 +57,8 @@ public class SearchPageTest extends TestBase {
         search.typeinSearchBox();
 		logger.info("Clicking on the playlist");
 		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
+		logger.info("Clicking on the Song button inside the playlist");
+		search.clickonSonginPlaylist();
 		logger.info("Clicking on the Close Icon the Cookie Policy popup");
 		search.clickonClose();
 		logger.info("Pausing the song from the media player ");
@@ -72,7 +72,9 @@ public class SearchPageTest extends TestBase {
 
 	}
 
-	@Test(priority = 3)
+
+	
+		@Test(priority = 3)
 	public void validateWhenRepeatnotenabled() {
 
 		logger.info("Checking if the Enable Repeat Icon is in disabled mode or not ");
@@ -80,8 +82,8 @@ public class SearchPageTest extends TestBase {
         search.typeinSearchBox();
 		logger.info("Clicking on the playlist");
 		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
+		logger.info("Clicking on the Song button inside the playlist");
+		search.clickonSonginPlaylist();
 		logger.info("Clicking on the Close Icon the Cookie Policy popup");
 		search.clickonClose();
 		logger.info("Pausing the song from the media player ");
@@ -91,119 +93,125 @@ public class SearchPageTest extends TestBase {
 		Assert.assertEquals("Enable repeat", notEnabled, "The enable repeat option is not disabled");
 
 	}
+		
+		@Test(priority = 4)
+		public void validateWhenRepeatSongenabled() {
 
-	@Test(priority = 4)
-	public void validateWhenRepeatSongenabled() {
+			logger.info("Checking if the Enable Repeat Icon is in song repeat mode  or not ");
+			logger.info("Typing in the name of the playlist");
+	        search.typeinSearchBox();
+			logger.info("Clicking on the playlist");
+			search.clickonplaylist();
+			logger.info("Clicking on the Song button inside the playlist");
+			search.clickonSonginPlaylist();
+			logger.info("Clicking on the Close Icon the Cookie Policy popup");
+			search.clickonClose();
+			logger.info("Pausing the song from the media player ");
+			search.playorpausetheSong();
+			logger.info("Verifying the status of the looping icon");
+			search.enableRepeatonSong();
+			String notEnabled = search.enableRepeatgettoolTipValue();
+			System.out.println(notEnabled);
+			Assert.assertEquals("Enable repeat one", notEnabled, "The enable repeat  option is not enabled for the song");
 
-		logger.info("Checking if the Enable Repeat Icon is in song repeat mode  or not ");
-		logger.info("Typing in the name of the playlist");
-        search.typeinSearchBox();
-		logger.info("Clicking on the playlist");
-		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
-		logger.info("Clicking on the Close Icon the Cookie Policy popup");
-		search.clickonClose();
-		logger.info("Pausing the song from the media player ");
-		search.playorpausetheSong();
-		logger.info("Verifying the status of the looping icon");
-		search.enableRepeatonSong();
-		String notEnabled = search.enableRepeatgettoolTipValue();
-		System.out.println(notEnabled);
-		Assert.assertEquals("Enable repeat one", notEnabled, "The enable repeat  option is not enabled for the song");
+		}
 
-	}
+		@Test(priority = 5)
+		public void validateWhenRepeatPlaylistenabled() {
 
-	@Test(priority = 5)
-	public void validateWhenRepeatPlaylistenabled() {
+			logger.info("Checking if the Enable Repeat Icon is in playlist repeat mode  or not ");
+			logger.info("Typing in the name of the playlist");
+	        search.typeinSearchBox();
+			logger.info("Clicking on the playlist");
+			search.clickonplaylist();
+			logger.info("Clicking on the Song button inside the playlist");
+			search.clickonSonginPlaylist();
+			logger.info("Clicking on the Close Icon the Cookie Policy popup");
+			search.clickonClose();
+			logger.info("Pausing the song from the media player ");
+			search.playorpausetheSong();
+			logger.info("Verifying the status of the looping icon");
+			search.enableRepeatonSong();
+			String notEnabled = search.enableRepeatgettoolTipValue();
+			System.out.println(notEnabled);
+			Assert.assertEquals("Disable repeat", notEnabled, "The enable repeat option is not disabled");
 
-		logger.info("Checking if the Enable Repeat Icon is in playlist repeat mode  or not ");
-		logger.info("Typing in the name of the playlist");
-        search.typeinSearchBox();
-		logger.info("Clicking on the playlist");
-		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
-		logger.info("Clicking on the Close Icon the Cookie Policy popup");
-		search.clickonClose();
-		logger.info("Pausing the song from the media player ");
-		search.playorpausetheSong();
-		logger.info("Verifying the status of the looping icon");
-		search.enableRepeatonSong();
-		String notEnabled = search.enableRepeatgettoolTipValue();
-		System.out.println(notEnabled);
-		Assert.assertEquals("Disable repeat", notEnabled, "The enable repeat option is not disabled");
+		}
 
-	}
+		@Test(priority = 6)
+		public void validateDisablingRepeatagain() {
 
-	@Test(priority = 6)
-	public void validateDisablingRepeatagain() {
+			logger.info("Checking if the Enable Repeat Icon is in Disabling repeat mode  or not ");
+			logger.info("Typing in the name of the playlist");
+	        search.typeinSearchBox();
+			logger.info("Clicking on the playlist");
+			search.clickonplaylist();
+			logger.info("Clicking on the Song button inside the playlist");
+			search.clickonSonginPlaylist();
+			logger.info("Clicking on the Close Icon the Cookie Policy popup");
+			search.clickonClose();
+			logger.info("Pausing the song from the media player ");
+			search.playorpausetheSong();
+			logger.info("Verifying the status of the looping icon");
+			search.enableRepeatonSong();
+			String notEnabled = search.enableRepeatgettoolTipValue();
+			System.out.println(notEnabled);
+			Assert.assertEquals("Enable repeat", notEnabled, "The enable repeat  option is not enabled for the playlist");
 
-		logger.info("Checking if the Enable Repeat Icon is in Disabling repeat mode  or not ");
-		logger.info("Typing in the name of the playlist");
-        search.typeinSearchBox();
-		logger.info("Clicking on the playlist");
-		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
-		logger.info("Clicking on the Close Icon the Cookie Policy popup");
-		search.clickonClose();
-		logger.info("Pausing the song from the media player ");
-		search.playorpausetheSong();
-		logger.info("Verifying the status of the looping icon");
-		search.enableRepeatonSong();
-		String notEnabled = search.enableRepeatgettoolTipValue();
-		System.out.println(notEnabled);
-		Assert.assertEquals("Enable repeat", notEnabled, "The enable repeat  option is not enabled for the playlist");
+		}
 
-	}
+			
+		@Test(priority = 7)
+		public void validateNextBtn() {
 
-	@Test(priority = 7)
-	public void validatePreviousBtn() {
+			logger.info("Checking if the next song is played or not ");
+			logger.info("Typing in the name of the playlist");
+	        search.typeinSearchBox();
+			logger.info("Clicking on the playlist");
+			search.clickonplaylist();
+			logger.info("Clicking on the Song button inside the playlist");
+			search.clickonSonginPlaylist();
+			String currentSong = search.getSongName();
+			logger.info("Clicking on the Close Icon the Cookie Policy popup");
+			search.clickonClose();
+			logger.info("Pausing the song from the media player ");
+			search.playorpausetheSong();
+			logger.info("Clicking on the Next button");
+			search.clickOnNextBtn();
+			logger.info("Verifying if next song is played");
+			String nextSong = search.getSongName();
+			Assert.assertNotEquals(nextSong, currentSong, "The next song is not as expected");
 
-		logger.info("Checking if the previous song is played or not ");
-		logger.info("Typing in the name of the playlist");
-        search.typeinSearchBox();
-		logger.info("Clicking on the playlist");
-		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
-		logger.info("Clicking on the Close Icon the Cookie Policy popup");
-		search.clickonClose();
-		logger.info("Pausing the song from the media player ");
-		search.playorpausetheSong();
-		logger.info("Clicking on Previous button ");
-		search.clickOnPreviousBtn();
-		logger.info("Clicking on Previous button again");
-		search.clickOnPreviousBtn();
-		logger.info("Verifying if previous song is played");
-		String previoussong = search.getSongName();
-		Assert.assertEquals(previoussong, TestUtil.PREVIOUS_SONG_NAME, "The previous song is not as expected");
+		}
 
-	}
 
-	@Test(priority = 8)
-	public void validateNextBtn() {
+		@Test(priority = 8)
+		public void validatePreviousBtn() {
 
-		logger.info("Checking if the next song is played or not ");
-		logger.info("Typing in the name of the playlist");
-        search.typeinSearchBox();
-		logger.info("Clicking on the playlist");
-		search.clickonplaylist();
-		logger.info("Clicking on the Play button at the beginning of the playlist");
-		search.clickonSong();
-		logger.info("Clicking on the Close Icon the Cookie Policy popup");
-		search.clickonClose();
-		logger.info("Pausing the song from the media player ");
-		search.playorpausetheSong();
-		logger.info("Clicking on the Next button");
-		search.clickOnNextBtn();
-		logger.info("Verifying if next song is played");
-		String nextSong = search.getSongName();
-		Assert.assertEquals(nextSong, TestUtil.NEXT_SONG_NAME, "The next song is not as expected");
+			logger.info("Checking if the next song is played or not ");
+			logger.info("Typing in the name of the playlist");
+	        search.typeinSearchBox();
+			logger.info("Clicking on the playlist");
+			search.clickonplaylist();
+			logger.info("Clicking on the Play button at the beginning of the playlist");
+			search.clickonSong();
+			String currentSong = search.getSongName();
+			logger.info("Clicking on the Close Icon the Cookie Policy popup");
+			search.clickonClose();
+			logger.info("Pausing the song from the media player ");
+			search.playorpausetheSong();
+			logger.info("Clicking on the previous button");
+			search.clickOnPreviousBtn();
+			search.clickOnPreviousBtn();
+			logger.info("Verifying if previous song is played");
+			String previousSong = search.getSongName();
+			Assert.assertNotEquals(previousSong, currentSong, "The previous song is not as expected");
 
-	}
+		}
 
+
+		
+	
 	@BeforeMethod
 	public void setUp() {
 		initialisation();

@@ -22,6 +22,9 @@ public class SearchPage extends TestBase {
 
 	@FindBy(xpath = "//*[@id='main']/div/div[2]/div[3]/main/div[2]/div[2]/div/div/div[2]/section/div[2]/div[2]/div/button[1]")
 	WebElement playbutton;
+	
+	@FindBy(xpath="//*[@id='main']/div/div[2]/div[3]/main/div[2]/div[2]/div/div/div[2]/section/div[2]/div[3]/div/div[2]/div[2]/div[1]/div/div[1]/div/span")
+	WebElement playBtninPlaylist;
 
 	@FindBy(xpath = "//*[@id='onetrust-close-btn-container']/button")
 	WebElement close;
@@ -64,6 +67,12 @@ public class SearchPage extends TestBase {
 
 	public void clickonSong() {
 		playbutton.click();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -151,5 +160,16 @@ public class SearchPage extends TestBase {
 		String getSongName=songName.getText();
 		return getSongName;
 		
+	}
+	
+	public void clickonSonginPlaylist() {
+		
+		playBtninPlaylist.click();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
